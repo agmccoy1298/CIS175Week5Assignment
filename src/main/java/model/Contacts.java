@@ -1,9 +1,14 @@
 package model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,7 +29,9 @@ public class Contacts {
 	@Column(name="PHONENUMBER")
 	private String phoneNumber;
 	@Column(name="ADDRESS")
-	private String address;
+	private String address;	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<Pets> pets;
 	
 	//constructors
 	public Contacts() {
@@ -34,6 +41,12 @@ public class Contacts {
 		this.name = _name;
 		this.phoneNumber = _phoneNumber;
 		this.address = _address;
+	}
+	public Contacts(String _name, String _phoneNumber, String _address, List<Pets> _pets) {
+		this.name = _name;
+		this.phoneNumber = _phoneNumber;
+		this.address = _address;
+		this.pets = _pets;
 	}
 	
 	//getters and setters
@@ -61,6 +74,13 @@ public class Contacts {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public List<Pets> getPets() {
+		return pets;
+	}
+	public void setPets(List<Pets> pets) {
+		this.pets = pets;
+	}
+	
 	
 	//helper methods
 	public String returnContactInfo() {		

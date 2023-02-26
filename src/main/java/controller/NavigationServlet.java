@@ -52,7 +52,7 @@ public class NavigationServlet extends HttpServlet {
 			}catch (NumberFormatException e){
 				System.out.println("Something went wrong when trying to select a contact.");
 			}						
-		} else if (act.equals("edit")) {
+		} else if (act.equals("edit contact")) {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
 				Contacts contactToEdit = chc.searchForContactById(tempId);
@@ -61,7 +61,16 @@ public class NavigationServlet extends HttpServlet {
 			}catch (NumberFormatException e) {
 				System.out.println("Something went wrong when trying to select a contact.");
 			}			
-		} else if (act.equals("add")) {
+			
+		} else if (act.equals("edit contact pets")){
+			try {
+				PetsHelper ph = new PetsHelper();								
+				request.setAttribute("petsList", ph.showAllPets());
+				path = "/pets-List.jsp";
+			}catch (NumberFormatException e) {
+				System.out.println("Something went wrong when trying to select a contact.");
+			}
+		}else if (act.equals("add")) {		
 			path = "/index.html";
 		}
 		

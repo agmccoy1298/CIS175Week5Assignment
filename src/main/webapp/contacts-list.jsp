@@ -16,11 +16,15 @@
 					 <td><input type="radio" name="id" value="${currentContact.id}"></td>
 					 <td>${currentContact.name}</td>
 					 <td>${currentContact.address}</td>
-					 <td>${currentContact.phoneNumber}</td>
+					 <td>${currentContact.phoneNumber}</td>							 						
+					 <c:forEach var="listVal" items = "${currentContact.pets}">
+					 	<tr><td></td><td colspan="3">${listVal.petName}</td></tr>
+					 </c:forEach>
 			 	</tr>
 			</c:forEach>
 		</table>
-		<input type = "submit" value = "edit" name="doThisToContact">
+		<input type = "submit" value = "edit contact" name="doThisToContact">
+		<input type = "submit" value = "edit contact pets" name="doThisToContact">		
 		<input type = "submit" value = "delete" name="doThisToContact">
 		<input type="submit" value = "add" name = "doThisToContact">
 	</form>

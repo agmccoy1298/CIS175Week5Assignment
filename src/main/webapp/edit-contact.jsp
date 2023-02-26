@@ -11,7 +11,7 @@
 	<form action = "editContactServlet" method="post">
 		Name: <input type ="text" name = "name" value= "${contactToEdit.name}">
 		Address: <input type = "text" name = "address" value= "${contactToEdit.address}">
-		Phone Number: <input type = "text" name = "phoneNumber" value= "${contactToEdit.phoneNumber}">
+		Phone Number: <input type = "text" name = "phoneNumber" value= "${contactToEdit.phoneNumber}">		
 		<input type = "hidden" name = "id" value="${contactToEdit.id}">
 		<input type = "submit" value="Save Edited Contact">
 	</form>
